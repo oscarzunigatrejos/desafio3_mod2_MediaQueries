@@ -1,0 +1,312 @@
+/* Arrancamos con las propiedades comunes */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Mobile First */
+
+/* En este bloque, solo se va a cargar si la pantalla tiene un ancho máximo de 576 px */
+#main_container {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    height: 100vh;
+}
+
+header {
+    background-color: var(--md-sys-color-tertiary);
+    color: var(--md-sys-color-on-primary);
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+nav {
+    background-color: var(--md-sys-color-surface-dim);
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1rem;
+}
+
+main {
+    background-color: var(--md-sys-color-on-primary);
+    grid-area: main;
+    overflow: auto;
+}
+
+
+section {
+    grid-area: section;
+    background-color: beige;
+    height: 85vh;
+    overflow-y: auto;
+}
+
+footer {
+    background-color: var(--md-sys-color-on-tertiary-container);
+    color: var(--md-sys-color-on-primary);
+    padding: 10px;
+    text-align: center;
+    grid-area: footer;
+}
+
+img {
+    width: 100%;
+    border-radius: 8%;
+}
+
+h4 {
+    font-size: calc(1em + 1vw);
+    margin: 5px;
+    color: var(--md-sys-color-secondary);
+}
+
+button {
+    padding: 0.4em 1.4em;
+    margin: 0.4em auto;
+    background-color: var(--md-sys-color-surface-variant);
+    border: 0.1em solid var(--md-sys-color-on-primary-fixed-variant);
+}
+
+button:hover {
+
+    background-color: var(--md-sys-color-on-surface-variant);
+    color: var(--md-sys-color-on-primary);
+    cursor: pointer;
+}
+
+.filtro-text {
+    font-size: 1em;
+    margin: 5px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.filtro-select {
+    background-color: var(--md-sys-color-surface-bright);
+    width: 100px;
+    padding: .5em;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 64px;
+}
+
+.logo-container p {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.menu-hamburgesa {
+    font-size: 2em;
+}
+
+.link-container {
+    display: none;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1em;
+    flex-basis: calc(100% - 20vw);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--md-sys-color-surface-container-low);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8%;
+    border: 1px solid var(--md-sys-color-surface-variant);
+    box-shadow: 1px 4px 10px -7px var(--md-sys-color-shadow);
+}
+
+.card:hover {
+    background-color: var(--md-sys-color-surface-container);
+    box-shadow: 1px 6px 10px -7px var(--md-sys-color-shadow);
+}
+
+.paginador {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.paginador a {
+    padding: 0.4em;
+    text-decoration: none;
+    color: var(--md-sys-color-secondary);
+}
+
+.paginador a:hover {
+    background-color: var(--md-sys-color-outline);
+    color: var(--md-sys-color-on-primary);
+}
+
+.paginador #primero {
+    border: 1px solid var(--md-sys-color-surface-variant);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.paginador #ultimo {
+    border: 1px solid var(--md-sys-color-surface-variant);
+    border-radius: 0 5px 5px 0;
+}
+
+.paginador .numero {
+    border: 1px solid var(--md-sys-color-surface-variant);
+}
+
+.rss{
+    font-size: small;
+    padding-bottom: 10px;
+}
+.rss a{
+    color: var(--md-sys-color-on-primary);
+    padding: 3px;
+}
+.rss a:hover{
+    color: var( --md-sys-color-secondary-container);
+}
+
+/* Tablet */
+@media (width >= 576px) {
+
+    /* En este bloque, solo se va a cargar si la pantalla tiene un ancho máximo de 992 px */
+        #main_container {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "nav main"
+            "footer footer";
+        min-height: 100vh;
+    }
+
+    nav {
+        justify-content: flex-start;
+    }
+
+    h4 {
+        font-size: calc(.5em + 1vw);
+    }
+
+    .menu-hamburgesa {
+        display: none;
+    }
+
+    .link-container {
+        display: flex;
+        gap: 1.5em;
+    }
+
+    .link-container a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-primary);
+    }
+
+    .link-container a:hover {
+        text-decoration: underline;
+        color: var(--md-sys-color-on-primary);
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .card {
+        flex-basis: calc(30%);
+    }
+}
+
+/* Desktop */
+@media (width >= 992px) {
+
+    /* En este bloque, solo se va a cargar si la pantalla tiene un ancho mínimo de 992 px */
+    #main_container {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header nav"
+            "header main"
+            "footer main";
+        min-height: 100vh;
+    }
+
+    header {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .logo-container {
+        font-size: small;
+        gap: 1em;
+    }
+
+    .logo-container img {
+        width: 32px;
+    }
+
+    h4 {
+        font-size: calc(.5em + 1vw);
+    }
+
+    .menu-hamburgesa {
+        display: none;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 1em;
+    }
+
+    .link-container {
+
+        margin-top: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+    }
+
+    .link-container a {
+        text-decoration: none;
+        color: var(--md-sys-color-on-primary);
+    }
+
+    .link-container a:hover {
+        text-decoration: underline;
+        color: var(--md-sys-color-on-primary);
+    }
+
+    .card {
+        flex-basis: calc(23.33% - 5vw);
+    }
+}
